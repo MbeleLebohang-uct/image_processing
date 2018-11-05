@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tatenda/Documents/CPP_Workspace/image_processing/src/Image.cpp
+memory
+-
+iostream
+-
+fstream
+-
+../include/Image.h
+/home/tatenda/Documents/CPP_Workspace/image_processing/include/Image.h
+
+/home/tatenda/Documents/CPP_Workspace/image_processing/src/main.cpp
+cstdlib
+-
+iostream
+-
+vector
+-
+../include/Image.h
+/home/tatenda/Documents/CPP_Workspace/image_processing/include/Image.h
+
