@@ -150,6 +150,33 @@ src/Image.cpp.s:
 	$(MAKE) -f CMakeFiles/image_processing.dir/build.make CMakeFiles/image_processing.dir/src/Image.cpp.s
 .PHONY : src/Image.cpp.s
 
+src/ImageProcessor.o: src/ImageProcessor.cpp.o
+
+.PHONY : src/ImageProcessor.o
+
+# target to build an object file
+src/ImageProcessor.cpp.o:
+	$(MAKE) -f CMakeFiles/image_processing.dir/build.make CMakeFiles/image_processing.dir/src/ImageProcessor.cpp.o
+.PHONY : src/ImageProcessor.cpp.o
+
+src/ImageProcessor.i: src/ImageProcessor.cpp.i
+
+.PHONY : src/ImageProcessor.i
+
+# target to preprocess a source file
+src/ImageProcessor.cpp.i:
+	$(MAKE) -f CMakeFiles/image_processing.dir/build.make CMakeFiles/image_processing.dir/src/ImageProcessor.cpp.i
+.PHONY : src/ImageProcessor.cpp.i
+
+src/ImageProcessor.s: src/ImageProcessor.cpp.s
+
+.PHONY : src/ImageProcessor.s
+
+# target to generate assembly for a file
+src/ImageProcessor.cpp.s:
+	$(MAKE) -f CMakeFiles/image_processing.dir/build.make CMakeFiles/image_processing.dir/src/ImageProcessor.cpp.s
+.PHONY : src/ImageProcessor.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... src/Image.o"
 	@echo "... src/Image.i"
 	@echo "... src/Image.s"
+	@echo "... src/ImageProcessor.o"
+	@echo "... src/ImageProcessor.i"
+	@echo "... src/ImageProcessor.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

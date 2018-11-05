@@ -1,1 +1,1 @@
-/usr/bin/c++   -std=c++14 -g  -rdynamic CMakeFiles/image_processing.dir/src/main.cpp.o CMakeFiles/image_processing.dir/src/Image.cpp.o  -o image_processing 
+/usr/bin/c++   -std=c++14 -g  -rdynamic CMakeFiles/image_processing.dir/src/main.cpp.o CMakeFiles/image_processing.dir/src/Image.cpp.o CMakeFiles/image_processing.dir/src/ImageProcessor.cpp.o  -o image_processing 

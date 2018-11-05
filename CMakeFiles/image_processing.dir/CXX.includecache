@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/home/tatenda/Documents/CPP_Workspace/image_processing/include/Image.h
+vector
+-
+memory
+-
+deque
+-
+
+/home/tatenda/Documents/CPP_Workspace/image_processing/include/ImageProcessor.h
+../include/Image.h
+/home/tatenda/Documents/CPP_Workspace/image_processing/include/Image.h
+
 /home/tatenda/Documents/CPP_Workspace/image_processing/src/Image.cpp
 memory
 -
@@ -16,6 +28,14 @@ fstream
 ../include/Image.h
 /home/tatenda/Documents/CPP_Workspace/image_processing/include/Image.h
 
+/home/tatenda/Documents/CPP_Workspace/image_processing/src/ImageProcessor.cpp
+iostream
+-
+../include/Image.h
+/home/tatenda/Documents/CPP_Workspace/image_processing/include/Image.h
+../include/ImageProcessor.h
+/home/tatenda/Documents/CPP_Workspace/image_processing/include/ImageProcessor.h
+
 /home/tatenda/Documents/CPP_Workspace/image_processing/src/main.cpp
 cstdlib
 -
@@ -25,4 +45,6 @@ vector
 -
 ../include/Image.h
 /home/tatenda/Documents/CPP_Workspace/image_processing/include/Image.h
+../include/ImageProcessor.h
+/home/tatenda/Documents/CPP_Workspace/image_processing/include/ImageProcessor.h
 

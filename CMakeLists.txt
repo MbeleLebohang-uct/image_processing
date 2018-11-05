@@ -9,4 +9,5 @@ add_executable(
 	image_processing
 	src/main.cpp
 	src/Image.cpp
+	src/ImageProcessor.cpp
 )

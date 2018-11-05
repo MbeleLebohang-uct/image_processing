@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Image.h
  * Author: MBELE
  *
@@ -26,29 +26,29 @@ namespace MBLLEB006{
         private:
             unsigned char *ptr;
             // construct only via Image class (begin/end)
-            iterator(unsigned char *p) : ptr(p) {}  
+            iterator(unsigned char *p) : ptr(p) {}
 
         public:
             /**
              * @Brief Copy constructor
-             * 
+             *
              * @param rhs
              */
             iterator(const iterator & rhs) : ptr(rhs.ptr) {}
-            
+
             /**
              * @Brief Move constructor
-             * 
+             *
              * @param rhs
              */
             iterator(iterator && rhs) : ptr(rhs.ptr)
             { rhs.ptr = nullptr;}
-            
+
             /**
              * @Brief Copy assignment operator
-             * 
+             *
              * @param rhs
-             * @return 
+             * @return
              */
             iterator & operator=(const iterator & rhs){
                 if(this != &rhs){
@@ -56,12 +56,12 @@ namespace MBLLEB006{
                 }
                 return *this;
             }
-            
+
             /**
              * @Brief Move assignment operator
-             * 
+             *
              * @param rhs
-             * @return 
+             * @return
              */
             iterator & operator=(iterator && rhs){
                 if(this != &rhs){
@@ -73,18 +73,18 @@ namespace MBLLEB006{
 
             /**
              * @Brief Check for equality between two iterators
-             * 
+             *
              * @param rhs
-             * @return 
+             * @return
              */
             bool operator==(const iterator & rhs){
                 return (this->ptr == rhs.ptr);
             }
             /**
              * @Brief Check for equality between two iterators
-             * 
+             *
              * @param rhs
-             * @return 
+             * @return
              */
             bool operator!=(const iterator & rhs){
                 return (this->ptr != rhs.ptr);
@@ -92,30 +92,30 @@ namespace MBLLEB006{
 
             /**
              * @Brief Dereference operator
-             * 
+             *
              * @param rhs
-             * @return 
+             * @return
              */
             unsigned char& operator*(){
                 return *(ptr);
             }
             /**
              * @Brief post ++ operator
-             * 
+             *
              * @param rhs
-             * @return 
+             * @return
              */
             iterator operator++(const int){
                 iterator temp(*this);
                 this->ptr += 1;
                 return temp;
             }
-            
+
             /**
              * @Brief pre ++ operator
-             * 
+             *
              * @param rhs
-             * @return 
+             * @return
              */
             iterator& operator++(){
                 this->ptr += 1;
@@ -124,21 +124,21 @@ namespace MBLLEB006{
 
             /**
              * @Brief -- operator
-             * 
+             *
              * @param rhs
-             * @return 
+             * @return
              */
             iterator operator--(const int){
                 iterator temp(*this);
                 this->ptr -= 1;
                 return temp;
             }
-            
+
             /**
              * @Brief pre-- operator
-             * 
+             *
              * @param rhs
-             * @return 
+             * @return
              */
             iterator & operator--(){
                 this->ptr -= 1;
@@ -153,7 +153,7 @@ namespace MBLLEB006{
         {this->data = std::unique_ptr<unsigned char[]>(new unsigned char[height*width]);}
         /**
          * @Brief Initialise an Image object of a given file
-         * 
+         *
          * @param filename
          */
         Image(const char* filename);
@@ -165,14 +165,14 @@ namespace MBLLEB006{
 
         /**
          * @Brief Copy constructor
-         * 
+         *
          * @param orig
          */
         Image(const Image& orig);
-        
+
         /**
          * @Brief move constructor
-         * 
+         *
          * @param orig
          */
         Image(Image&& orig);
@@ -180,92 +180,86 @@ namespace MBLLEB006{
         /**
          * @Brief Returns a read/write iterator that points to the first
          * element of the data.
-         * @return 
+         * @return
          */
         iterator begin(void){return iterator(data.get());}
 
         /**
          * @Brief Returns a read/write iterator that points to the last
          * element of the data.
-         * @return 
+         * @return
          */
         iterator end(void){
             MBLLEB006::Image::iterator it((data.get() + (height*width) - 1));
             return it;
         }
-        
+
         /**
          * @Brief + operator on two Image objects
-         * 
+         *
          * @param rhs
-         * @return 
+         * @return
          */
         Image&  operator+(const Image& rhs);
         /**
          * @Brief: - operator on two Image objects
          * @param ths
-         * @return 
+         * @return
          */
         Image& operator-(const Image& rhs);
         /**
          * @Brief move = operator on two Image objects
-         * 
+         *
          * @param rhs
-         * @return 
+         * @return
          */
-	Image& operator=(Image&& rhs);  
-        
+	       Image& operator=(Image&& rhs);
+
         /**
          * @Brief Copy = operator
-         * 
+         *
          * @param rhs
-         * @return 
+         * @return
          */
-	Image& operator=(const Image& rhs);
-        
+	       Image& operator=(const Image& rhs);
+
         /**
          * @Brief mask / operator
-         * 
+         *
          * @param rhs
-         * @return 
+         * @return
          */
-	Image& operator/(const Image& rhs);
-        
+	       Image& operator/(const Image& rhs);
+
         /**
          * @Brief inverter operator
-         * 
-         * @return 
+         *
+         * @return
          */
         Image& operator!(void);
-        
+
         /**
          * @Brief Threshold operator
-         * 
+         *
          * @param f
-         * @return 
+         * @return
          */
         Image& operator*(const int f);
         /**
          * @Brief >> operator
-         * 
+         *
          * @param filename
-         * @return 
+         * @return
          */
         Image& operator>>(const char* filename);
 
         /**
          * @Brief >> operator
-         * 
+         *
          * @param filename
-         * @return 
+         * @return
          */
         Image& operator<<(const char* filename);
-        
-    private:
-        int width;                                  // The Width of the Image
-        int height;                                 // The Height of the Image
-        std::string header;                         // The header of the Image
-        std::unique_ptr<unsigned char[]> data;      // The container for the Image data
 
         /**
          * @Brief Read the data from a given image file
@@ -282,7 +276,42 @@ namespace MBLLEB006{
          * @return
          */
         int save(const char* filename);
+
+        /**
+         * @Brief Get the width of the image
+         * @return
+         */
+        int getWidth(){
+          return this->width;
+        }
+
+        /**
+         * @Brief Get the height of the image
+         * @return
+         */
+        int getHeight(){
+          return this->height;
+        }
+        /**
+         * @Brief Get the data of the image
+         * @return
+         */
+        std::unique_ptr<unsigned char[]>* getData(){
+          return &this->data;
+        }
+        /**
+         * @Brief Get the header of the image
+         * @return
+         */
+        std::string getHeader(){
+          return this->header;
+        }
+
+    private:
+        int width;                                  // The Width of the Image
+        int height;                                 // The Height of the Image
+        std::string header;                         // The header of the Image
+        std::unique_ptr<unsigned char[]> data;      // The container for the Image data
     };
 }
 #endif /* IMAGE_H */
-
